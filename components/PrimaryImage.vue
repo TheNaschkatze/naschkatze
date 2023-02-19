@@ -1,22 +1,26 @@
 <template>
   <h2 class="sr-only">
-    {{ imageText }}
+    {{ darkModeStore.isEnabled  ? 'Naschkatze\'s Photo' : 'Alonso\'s Photo' }}
   </h2>
   <img
     :src="imageSrc"
     :alt="'todo'"
-    :class="[
-      'w-96 h-96 rounded-lg lg:col-span-2 lg:row-span-2',
-      phase === 'out' ? 'rotate-out' : '',
-      phase === 'in' ? 'rotate-in' : ''
+    :class="[{
+      out: 'rotate-out',
+      in: 'rotate-in',
+    }[phase],
+    'w-96 h-96 rounded-lg lg:col-span-2 lg:row-span-2'
     ]"
   >
 </template>
 
 <script setup lang="ts">
+import javier from '~/public/javier.jpg'
+import naschkatze from '~/public/naschkatze.jpg'
+
 const darkModeStore = useDarkModeStore()
-const imageDark = 'https://preview.redd.it/dxqt13ka0hf71.jpg?auto=webp&s=8c6ab9aafefeb69121b22020bcb235f49586808a'
-const imageLight = 'https://profile-images.xing.com/images/e2cd073872084b805a5415dc61967886-1/alonso-valenzuela.1024x1024.jpg'
+const imageLight = javier
+const imageDark = naschkatze
 const imageSrc = ref(darkModeStore.isEnabled ? imageDark : imageLight)
 const phase = ref('')
 const isAnimating = ref(false)

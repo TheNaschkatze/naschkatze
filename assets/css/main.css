@@ -5,21 +5,13 @@
 @layer base {
     :root {
         --color-primary: 5 0 150;
-        --color-text: 33 33 33;
-        --color-light: 245 245 245;
-        --color-success: 0 200 81;
-        --color-info: 51 181 229;
-        --color-warn: 255 187 51;
-        --color-error: 254 78 78;
+        --color-primary-muted: 5 0 100;
+        --color-background: white;
     }
 
     :root[class="dark"] {
         --color-primary: 5 0 150;
-        --color-text: 33 33 33;
-        --color-light: 245 245 245;
-        --color-success: 0 200 81;
-        --color-info: 51 181 229;
-        --color-warn: 255 187 51;
-        --color-error: 254 78 78;
+        --color-primary-muted: 5 0 100;
+        --color-background: 15 23 42;
     }
 }

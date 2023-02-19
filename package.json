@@ -6,7 +6,8 @@
     "generate": "nuxt generate",
     "lint": "eslint .",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",
