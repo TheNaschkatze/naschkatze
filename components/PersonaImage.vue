@@ -1,22 +1,19 @@
 <template>
-  <h2 class="sr-only">
-    {{ darkModeStore.isEnabled  ? 'Naschkatze\'s Photo' : 'Alonso\'s Photo' }}
-  </h2>
   <img
     :src="imageSrc"
-    :alt="'todo'"
+    :alt="darkModeStore.isEnabled  ? 'Naschkatze\'s Photo' : 'Alonso\'s Photo'"
     :class="[{
       out: 'rotate-out',
       in: 'rotate-in',
     }[phase],
-    'w-96 h-96 rounded-lg lg:col-span-2 lg:row-span-2'
+    'rounded-lg'
     ]"
   >
 </template>
 
 <script setup lang="ts">
 import javier from '~/public/javier.jpg'
-import naschkatze from '~/public/naschkatze.jpg'
+import naschkatze from '~/assets/images/morgana.webp'
 
 const darkModeStore = useDarkModeStore()
 const imageLight = javier
