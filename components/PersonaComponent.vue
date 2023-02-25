@@ -19,10 +19,15 @@
 </template>
 
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import KatzeTypography from '~/components/Ui/KatzeTypography.vue'
+import { personaStore } from '~/stores/personaStore'
+
+const store = personaStore()
+const { persona } = storeToRefs(store)
 
 const darkStore = useDarkModeStore()
-const name = computed(() => (darkStore.isEnabled ? 'the Naschkatze' : 'Alonso Cerna'))
-const title = computed(() => (darkStore.isEnabled ? 'Hacker' : 'Software Engineer'))
+const name = computed(() => (darkStore.isEnabled ? persona.value?.phantom.name : persona.value?.real.name))
+const title = computed(() => (darkStore.isEnabled ? persona.value?.phantom.title : persona.value?.real.title))
 
 </script>

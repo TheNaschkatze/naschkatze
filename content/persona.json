@@ -1,0 +1,18 @@
+{
+  "real": {
+    "title": "Software Engineer",
+    "name": "Alonso Cerna",
+    "birthday": "1989-11-21",
+    "birthplace": "Providencia, Chile",
+    "location": "Hamburg, Germany",
+    "workplace": "Kartenliebe, Munich, Germany",
+    "email": "theNaschkatze@icloud.com",
+    "github": "TheNaschkatze",
+    "twitter": "https://twitter.com/theNaschkatze",
+    "website": "http://thenaschkatze.com"
+  },
+  "phantom": {
+    "title": "Hacker",
+    "name": "theNaschkatze"
+  }
+}
