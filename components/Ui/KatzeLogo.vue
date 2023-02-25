@@ -1,6 +1,6 @@
 <template>
-  <a :href="url" class="hover:cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ">
-     <component :is="darkStore.isEnabled ? darkSvg : lightSvg"/>
+  <a :href="href" class="hover:cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary text-text-color">
+     <component class="w-24 h-24" :is="darkStore.isEnabled ? darkSvg : lightSvg"/>
   </a>
 </template>
 
@@ -8,7 +8,7 @@
 defineProps<{
   darkSvg: string,
   lightSvg: string,
-  url: string
+  href: string
 }>()
 const darkStore = useDarkModeStore()
 

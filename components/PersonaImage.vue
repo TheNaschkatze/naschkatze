@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import javier from '~/public/javier.jpg'
+import javier from 'assets/images/javier.jpg'
 import naschkatze from '~/assets/images/morgana.webp'
 
 const darkModeStore = useDarkModeStore()
@@ -32,8 +32,7 @@ watch(() => darkModeStore.isEnabled, () => {
     phase.value = 'in'
     isAnimating.value = false
   }, 250)
-}
-)
+})
 </script>
 
 <style scoped>
