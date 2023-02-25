@@ -4,14 +4,18 @@
 
 @layer base {
     :root {
-        --color-primary: 5 0 150;
+        --color-primary: 0 124 240;
         --color-primary-muted: 5 0 100;
+        --color-secondary: 0 223 216;
+        --color-text-color: 0 0 0;
         --color-background: white;
     }
 
     :root[class="dark"] {
-        --color-primary: 5 0 150;
+        --color-primary: 225 0 128;
         --color-primary-muted: 5 0 100;
+        --color-secondary: 121 40 202;
+        --color-text-color: 255 255 255;
         --color-background: 15 23 42;
     }
 }

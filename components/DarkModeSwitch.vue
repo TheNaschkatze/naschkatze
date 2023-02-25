@@ -1,7 +1,7 @@
 <template>
   <Switch
     v-model="darkModeEnabled"
-    :class="[darkModeEnabled ? 'bg-primary-muted' : 'bg-gray-200', 'relative inline-flex h-6 w-12 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2']"
+    :class="[darkModeEnabled ? 'bg-primary/25' : 'bg-gray-200', 'relative inline-flex h-6 w-12 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2']"
   >
     <span class="sr-only">Switch dark-mode</span>
     <span :class="[darkModeEnabled ? 'translate-x-6' : 'translate-x-0', 'pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white text-primary shadow ring-0 transition duration-200 ease-in-out']">
