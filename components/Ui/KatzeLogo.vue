@@ -1,6 +1,6 @@
 <template>
-  <a :href="href" class="hover:cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary text-text-color">
-     <component class="w-24 h-24" :is="darkStore.isEnabled ? darkSvg : lightSvg"/>
+  <a :href="href" class="group focus:outline-none hover:cursor-pointer text-text-color">
+     <component class="w-24 h-24 focus:outline-none group-focus-visible:ring-2 group-focus-visible:ring-primary" :is="darkStore.isEnabled ? darkSvg : lightSvg"/>
   </a>
 </template>
 
