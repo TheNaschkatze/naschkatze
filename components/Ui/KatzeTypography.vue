@@ -7,13 +7,13 @@
       p: 'text-text-color text-xl font-light mb-4'
     }[element]"
   >
-    <slot/>
+    <slot />
   </component>
 </template>
 
 <script setup lang="ts">
 defineProps<{
-  element: "h1"
+  element: 'h1'
 }>()
 
 </script>

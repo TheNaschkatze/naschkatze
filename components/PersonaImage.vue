@@ -1,12 +1,12 @@
 <template>
   <img
     :src="imageSrc"
-    :alt="darkModeStore.isEnabled  ? 'Naschkatze\'s Photo' : 'Alonso\'s Photo'"
+    :alt="darkModeStore.isEnabled ? 'Naschkatze\'s Photo' : 'Alonso\'s Photo'"
     :class="[{
-      out: 'rotate-out',
-      in: 'rotate-in',
-    }[phase],
-    'rounded-lg'
+               out: 'rotate-out',
+               in: 'rotate-in',
+             }[phase],
+             'rounded-lg'
     ]"
   >
 </template>

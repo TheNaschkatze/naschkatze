@@ -1,6 +1,5 @@
 <template>
   <Disclosure
-    v-slot="{ open }"
     as="nav"
     class="bg-transparent dark:shadow-2xl shadow"
   >

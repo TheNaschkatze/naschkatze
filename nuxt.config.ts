@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
-    'nuxt-svgo',
+    'nuxt-svgo'
   ],
   colorMode: {
     classSuffix: ''
