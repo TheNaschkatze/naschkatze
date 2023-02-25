@@ -4,8 +4,16 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
+    '@nuxt/content',
     'nuxt-svgo'
   ],
+  pinia: {
+    autoImports: [
+      // automatically imports `defineStore`
+      'defineStore', // import { defineStore } from 'pinia'
+      ['defineStore', 'definePiniaStore'] // import { defineStore as definePiniaStore } from 'pinia'
+    ]
+  },
   colorMode: {
     classSuffix: ''
   },
