@@ -1056,6 +1056,28 @@
   resolved "https://registry.yarnpkg.com/@socket.io/component-emitter/-/component-emitter-3.1.0.tgz#96116f2a912e0c02817345b3c10751069920d553"
   integrity sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==
 
+"@storyblok/js@^2.0.5":
+  version "2.0.16"
+  resolved "https://registry.yarnpkg.com/@storyblok/js/-/js-2.0.16.tgz#7d5eacbf342865195324e58518cee9703ca24ef1"
+  integrity sha512-T8x5YJypO1/Fh4mIhilaG5Dg1qSx3L4BsaRnbAmrGIR0o0ZW+VPBwBC6DG1LZL21ZbaUZUO3AiBjm2QmJCWNnw==
+  dependencies:
+    storyblok-js-client "^5.4.1"
+
+"@storyblok/nuxt@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@storyblok/nuxt/-/nuxt-5.1.0.tgz#b75fac2a28f6226e24780d6e8d80f8cafd46d89f"
+  integrity sha512-Sf/lJkBGH0zOrL0tnItnGhjQLLvr9H5hSl1jGa/4F+3JOTKkjmANmlqH4HEkxjbSBjxjL15/c2DIcSJb6/HMlg==
+  dependencies:
+    "@nuxt/kit" "^3.0.0"
+    "@storyblok/vue" "^7.0.0"
+
+"@storyblok/vue@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@storyblok/vue/-/vue-7.0.0.tgz#064c223ac79e3c864d953d1ff89b3201aab075ce"
+  integrity sha512-r23LAho/M2fk6bNUW39XDTMM8V+Eug9gZoZf3ZBRoW40fpnjzP8eQj0hnCqhFK5gfOFVsmsL206AAbQx1xz3lQ==
+  dependencies:
+    "@storyblok/js" "^2.0.5"
+
 "@tailwindcss/typography@^0.5.9":
   version "0.5.9"
   resolved "https://registry.yarnpkg.com/@tailwindcss/typography/-/typography-0.5.9.tgz#027e4b0674929daaf7c921c900beee80dbad93e8"
@@ -6476,6 +6498,11 @@ std-env@^3.3.1, std-env@^3.3.2:
   version "3.3.2"
   resolved "https://registry.npmjs.org/std-env/-/std-env-3.3.2.tgz"
   integrity sha512-uUZI65yrV2Qva5gqE0+A7uVAvO40iPo6jGhs7s8keRfHCmtg+uB2X6EiLGCI9IgL1J17xGhvoOqSz79lzICPTA==
+
+storyblok-js-client@^5.4.1:
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/storyblok-js-client/-/storyblok-js-client-5.4.3.tgz#28b3364c57a31e104a722e490678484c54126dfd"
+  integrity sha512-D4vqr1GmW8f9Or3TxYKnDIR3TJ8VNOsl9hTnA62MB8O/7pPhCok6lsjApiw8FZdgGX/l6LEWMIIJaOqYecl9Jg==
 
 "string-width@^1.0.2 || 2 || 3 || 4", string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
   version "4.2.3"

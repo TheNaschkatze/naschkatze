@@ -2,6 +2,7 @@
 module.exports = {
   darkMode: 'class',
   content: [
+    'storyblok/**/*.{vue,js}',
     './components/**/*.{js,vue,ts}',
     './layouts/**/*.vue',
     './pages/**/*.vue',

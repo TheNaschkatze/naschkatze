@@ -5,8 +5,12 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
     '@nuxt/content',
-    'nuxt-svgo'
+    'nuxt-svgo',
+    '@storyblok/nuxt'
   ],
+  storyblok: {
+    accessToken: process.env.STORYBLOK_TOKEN
+  },
   pinia: {
     autoImports: [
       // automatically imports `defineStore`

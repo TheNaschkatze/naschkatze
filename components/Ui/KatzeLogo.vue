@@ -6,8 +6,8 @@
 
 <script setup lang="ts">
 defineProps<{
-  darkSvg: string,
-  lightSvg: string,
+  darkSvg: object |(() => object),
+  lightSvg: object | (() => object),
   href: string
 }>()
 const darkStore = useDarkModeStore()
