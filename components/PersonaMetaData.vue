@@ -1,5 +1,5 @@
 <template>
-  <ul class="flex text-text-color gap-4">
+  <ul class="flex text-text-color gap-4 justify-center lg:justify-start">
     <li class="flex">
       <MapPinIcon class="h-7" /><KatzeTypography element="p">
         | {{ realPersona.location }}

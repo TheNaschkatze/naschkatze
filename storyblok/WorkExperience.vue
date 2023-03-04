@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import KatzeUnlockableCard from '~/components/Ui/KatzeUnlockableCard.vue'
+import KatzeUnlockableCard from '~/components/Ui/KatzeActionCard.vue'
 
 defineProps({ blok: Object })
 
