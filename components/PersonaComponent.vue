@@ -1,8 +1,8 @@
 <template>
   <section class="flex flex-col lg:flex-row lg:items-start gap-4 items-center">
     <aside class="flex flex-col gap-4">
-    <PersonaImage class="max-w-96 h-96 lg:float-left" />
-    <SocialMediaBar class="w-full lg:w-96" />
+      <PersonaImage class="max-w-96 h-96 lg:float-left" />
+      <SocialMediaBar class="w-full lg:w-96" />
     </aside>
     <div>
       <KatzeTypography class="text-center lg:text-left" element="h2">
