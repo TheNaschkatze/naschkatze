@@ -1,10 +1,12 @@
 <template>
   <div
     ref="target"
-    class="cursor-pointer group relative p-12 rounded-xl shadow-lg bg-white"
-    @click="fullCover = true"
+    class="cursor-pointer group relative p-12 rounded-xl shadow-lg dark:bg-slate-900 bg-slate-100"
+    @click="unlock"
   >
-    <slot />
+    <div class="dark:mr-36">
+      <slot name="default" />
+    </div>
     <!-- Cover -->
     <div
       v-if="isUnlockable"
@@ -19,11 +21,13 @@
       <LockClosedIcon class="w-8" />
       <p
         v-if="!fullCover"
-        class="group-hover:block hidden absolute bottom-4"
+        class="group-hover:block hidden absolute bottom-1/3"
       >
         Unlock
       </p>
-      <slot name="cover-content" />
+      <section v-if="isCoverAnimationFinished" class="w-full">
+        <slot name="cover-content" />
+      </section>
     </div>
   </div>
 </template>
@@ -37,5 +41,17 @@ const props = defineProps<{
 }>()
 const target = ref(null)
 const fullCover = ref(false)
-onClickOutside(target, () => fullCover.value = false)
+const isCoverAnimationFinished = ref(false)
+
+const unlock = () => {
+  fullCover.value = true
+  // wait  300 ms before setting isCoverAnimationFinished to true
+  setTimeout(() => {
+    isCoverAnimationFinished.value = true
+  }, 300)
+}
+onClickOutside(target, () => {
+  fullCover.value = false
+  isCoverAnimationFinished.value = false
+})
 </script>
