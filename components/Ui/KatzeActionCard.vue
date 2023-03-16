@@ -4,28 +4,28 @@
     class="cursor-pointer group relative p-12 rounded-xl shadow-lg dark:bg-slate-900 bg-slate-100"
     @click="unlock"
   >
-    <div class="dark:mr-36">
+    <div class="dark:mb-36">
       <slot name="default" />
     </div>
     <!-- Cover -->
     <div
       v-if="isUnlockable"
       :class="[
+         'absolute rounded-t-lg w-full h-24 bottom-0 left-0 p-4 bg-yellow-500 transition-width duration-300 ease-out flex',
         {
-          'w-full h-full group-hover:none rounded-l-lg': fullCover,
-          'group-hover:w-36 justify-center': !fullCover,
+          'h-full group-hover:none': fullCover,
+          'group-hover:h-36 justify-center': !fullCover,
         },
-        'absolute rounded-r-lg h-full w-24 top-0 right-0 p-4 bg-yellow-500 transition-width duration-300 ease-out flex'
       ]"
     >
       <LockClosedIcon class="w-8" />
       <p
         v-if="!fullCover"
-        class="group-hover:block hidden absolute bottom-1/3"
+        class="group-hover:block hidden absolute bottom-4 transition duration-300 ease-out"
       >
         Unlock
       </p>
-      <section v-if="isCoverAnimationFinished" class="w-full">
+      <section v-if="isDelayFromCoverAnimationFinished" class="w-full">
         <slot name="cover-content" />
       </section>
     </div>
@@ -41,17 +41,16 @@ const props = defineProps<{
 }>()
 const target = ref(null)
 const fullCover = ref(false)
-const isCoverAnimationFinished = ref(false)
+const isDelayFromCoverAnimationFinished = ref(false)
 
 const unlock = () => {
   fullCover.value = true
-  // wait  300 ms before setting isCoverAnimationFinished to true
   setTimeout(() => {
-    isCoverAnimationFinished.value = true
-  }, 300)
+    isDelayFromCoverAnimationFinished.value = true
+  }, 100)
 }
 onClickOutside(target, () => {
   fullCover.value = false
-  isCoverAnimationFinished.value = false
+  isDelayFromCoverAnimationFinished.value = false
 })
 </script>
