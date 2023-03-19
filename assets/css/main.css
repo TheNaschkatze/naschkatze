@@ -5,7 +5,7 @@
 @layer base {
     :root {
         --color-primary: 0 124 240;
-        --color-primary-muted: 5 0 100;
+        --color-primary-hover: 0 118 229;
         --color-secondary: 0 223 216;
         --color-text-color: 0 0 0;
         --color-background: white;
@@ -13,8 +13,9 @@
 
     :root[class="dark"] {
         --color-primary: 225 0 128;
-        --color-primary-muted: 5 0 100;
+        --color-primary-hover: 214 0 110;
         --color-secondary: 121 40 202;
+        --color-secondary-hover: 132 43 135;
         --color-text-color: 255 255 255;
         --color-background: 15 23 42;
     }

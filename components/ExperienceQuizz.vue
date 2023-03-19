@@ -12,12 +12,22 @@
         <KatzeOptionLabel v-model="picked" :label="quizz[0].option2" :value="quizz[0].option2" :name="quizz[0].question" />
         <KatzeOptionLabel v-model="picked" :label="quizz[0].option3" :value="quizz[0].option3" :name="quizz[0].question" />
       </fieldset>
+      <br />
+      <div class="flex gap-2">
+        <KatzeButton type="secondary">
+          Cancel (close)
+        </KatzeButton>
+        <KatzeButton class="w-3/5">
+          Submit
+        </KatzeButton>
+      </div>
     </form>
   </section>
 </template>
 <script setup lang="ts">
 import KatzeTypography from '~/components/Ui/KatzeTypography.vue'
 import KatzeOptionLabel from '~/components/Ui/KatzeOptionLabel.vue'
+import KatzeButton from "~/components/Ui/KatzeButton.vue";
 
 defineProps({ quizz: [] })
 const picked = ref()
