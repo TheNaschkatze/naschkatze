@@ -7,16 +7,24 @@
         --color-primary: 0 124 240;
         --color-primary-hover: 0 118 229;
         --color-secondary: 0 223 216;
+
+        --color-error: 152 0 0;
+
         --color-text-color: 0 0 0;
         --color-background: white;
+        --color-card-background: 255 200 87;
     }
 
     :root[class="dark"] {
         --color-primary: 225 0 128;
         --color-primary-hover: 214 0 110;
         --color-secondary: 121 40 202;
-        --color-secondary-hover: 132 43 135;
+        --color-secondary-hover: 97 24 174;
+
+        --color-error: 255 157 157;
+
         --color-text-color: 255 255 255;
         --color-background: 15 23 42;
+        --color-card-background: 255 238 173;
     }
 }

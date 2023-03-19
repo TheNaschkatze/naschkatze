@@ -16,7 +16,7 @@
     <div
       v-if="isUnlockable"
       :class="[
-        'absolute rounded-t-lg w-full h-24 bottom-0 left-0 bg-yellow-500 transition-width duration-300 ease-out',
+        'absolute rounded-t-lg w-full h-24 bottom-0 left-0 bg-yellow-600 transition-width duration-300 ease-out',
         {
           'h-full group-hover:none p-12': fullCover,
           'flex group-hover:h-36 group-focus:h-36 justify-center p-4': !fullCover,
