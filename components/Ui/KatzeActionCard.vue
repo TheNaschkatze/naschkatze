@@ -8,7 +8,7 @@
   >
     <div
       @click="cover"
-      class="dark:mb-36"
+      class="dark:mb-24"
     >
       <slot name="default" />
     </div>
@@ -85,11 +85,6 @@ const uncover = () => {
   isDelayFromCoverAnimationFinished.value = false
 }
 
-// const print = ($event) => {
-//   console.log('print', $event.target.tagName === 'BUTTON'
-// }
-
-//.querySelector('[data-ref="closeButton"]')
 onClickOutside(target, () => {
   uncover()
 })
