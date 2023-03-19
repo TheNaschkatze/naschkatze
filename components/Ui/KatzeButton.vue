@@ -19,7 +19,7 @@ withDefaults(defineProps<{
           secondary: 'rounded-md bg-secondary py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-700 hover:bg-secondary-hover'
         }[type]
     ]"
-    @click="emit('click', $event)"
+    @click="emit('click')"
   >
     <slot />
   </button>

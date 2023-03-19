@@ -8,7 +8,7 @@
     @change="emit('update:modelValue', value)"
   >
   <label
-    class="cursor-pointer"
+    class="cursor-pointer text-xl"
     :for="label"
   >
     {{ label }}
