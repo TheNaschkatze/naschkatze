@@ -14,8 +14,11 @@ module.exports = {
     extend: {
       colors: {
         primary: 'rgb(var(--color-primary) / <alpha-value>)',
-        'primary-muted': 'rgb(var(--color-primary-muted) / <alpha-value>)',
+        'primary-hover': 'rgb(var(--color-primary-hover) / <alpha-value>)',
         secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+        'secondary-hover': 'rgb(var(--color-secondary-hover) / <alpha-value>)',
+        'card-background': 'rgb(var(--color-card-background) / <alpha-value>)',
+        'error': 'rgb(var(--color-error) / <alpha-value>)',
         'text-color': 'rgb(var(--color-text-color) / <alpha-value>)',
         background: 'rgb(var(--color-background) / <alpha-value>)',
         transparent: 'transparent',
@@ -24,6 +27,7 @@ module.exports = {
     }
   },
   plugins: [
-    require('@tailwindcss/typography')
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms')
   ]
 }

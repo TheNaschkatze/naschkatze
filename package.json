@@ -13,6 +13,7 @@
     "@nuxt/content": "^2.4.3",
     "@nuxt/eslint-config": "^0.1.1",
     "@nuxtjs/color-mode": "^3.2.0",
+    "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.34.0",
@@ -30,6 +31,7 @@
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@pinia/nuxt": "^0.4.6",
     "@storyblok/nuxt": "^5.1.0",
+    "@vueuse/core": "^9.13.0",
     "pinia": "^2.0.30"
   }
 }
