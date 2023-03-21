@@ -6,6 +6,9 @@
     <div class="px-4 px-6 lg:px-8">
       <div class="flex h-16 justify-end">
         <div class="ml-6 flex items-center gap-4">
+          <span class="flex items-center gap-2 text-gray-500 font-medium">
+            This website is Keyboard friendly!
+          </span>
           <DarkModeSwitch />
           <NuxtLink
             class="focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"

@@ -44,6 +44,12 @@
         </tr>
       </tbody>
     </table>
+    <br/>
+    <h2> Professional Experience</h2>
+    <div v-for="entry in workExperience">
+      <h3>{{ entry.employer }}, {{entry.location}} | {{entry.period}}</h3>
+      <p>{{entry.description}}</p>
+    </div>
   </div>
 </template>
 
@@ -59,6 +65,8 @@ definePageMeta({
 const store = personaStore()
 const { persona } = storeToRefs(store)
 const realPersona = computed(() => persona.value?.real)
+const story = await useAsyncStoryblok('home', { version: 'draft' })
+const workExperience = computed(() => story.value?.content.body.find((blok) => blok.component === 'workExperienceList')?.workexperience)
 </script>
 
 <style lang="scss" scoped>
