@@ -1,6 +1,9 @@
 <template>
   <div v-editable="blok">
-    <KatzeActionCard :is-unlockable="darkStore.isEnabled">
+    <KatzeActionCard
+        :is-unlockable="darkStore.isEnabled"
+        :is-unlocked="isUnlocked"
+    >
       <template #default>
         <KatzeTypography element="h3">
           {{ blok.job_title }}
@@ -12,7 +15,9 @@
       </template>
 
       <template #cover-content>
-        <ExperienceQuizz :quizz="blok.quizz" />
+        <ExperienceQuizz
+          @unlock="isUnlocked = true"
+          :quizz="blok.quizz" />
       </template>
     </KatzeActionCard>
   </div>
@@ -26,6 +31,7 @@ import {BuildingOffice2Icon, CalendarIcon, MapPinIcon} from "@heroicons/vue/20/s
 
 const props = defineProps({ blok: Object })
 const darkStore = useDarkModeStore()
+const isUnlocked = ref(false)
 
 if (!props.blok) {
   throw new Error('No blok provided')

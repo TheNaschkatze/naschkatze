@@ -29,6 +29,7 @@ import KatzeOptionLabel from '~/components/Ui/KatzeOptionLabel.vue'
 import KatzeButton from "~/components/Ui/KatzeButton.vue";
 
 const props = defineProps({ quizz: [] })
+const emit = defineEmits(['unlock'])
 const picked = ref()
 const showError = ref(false)
 
@@ -39,6 +40,7 @@ if (props.quizz.length === 0) {
 const checkAnswer = () => {
   if (picked.value === props.quizz[0].correctAnswer) {
     showError.value = false
+    emit('unlock')
     return
   } else {
     showError.value = true

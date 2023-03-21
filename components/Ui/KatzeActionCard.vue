@@ -13,16 +13,21 @@
       <slot name="default" />
     </div>
     <!-- Cover -->
-    <div
-      v-if="isUnlockable"
-      :class="[
-        'absolute rounded-t-lg w-full h-24 bottom-0 left-0 bg-yellow-600 transition-width duration-300 ease-out',
+    <transition
+      name="cover-transition"
+      leave-to-class="translate-y-[150%] opacity-0"
+      leave-active-class="transition duration-300"
+    >
+      <div
+          v-if="isUnlockable && !isUnlocked"
+          :class="[
+        'absolute rounded-t-lg w-full h-24 bottom-0 left-0 bg-yellow-600 transition-height duration-300 ease-out',
         {
           'h-full group-hover:none p-12': fullCover,
           'flex group-hover:h-36 group-focus:h-36 justify-center p-4': !fullCover,
         },
       ]"
-    >
+      >
       <LockClosedIcon
         v-if="!fullCover"
         class="w-8"
@@ -46,6 +51,7 @@
         <slot name="cover-content" />
       </section>
     </div>
+    </transition>
   </div>
 </template>
 
@@ -56,6 +62,7 @@ import KatzeButton from "~/components/Ui/KatzeButton.vue";
 
 const props = defineProps<{
   isUnlockable: boolean
+  isUnlocked: boolean
 }>()
 const target = ref(null)
 const fullCover = ref(false)
@@ -69,9 +76,8 @@ const toggleCover = () => {
   }
   cover()
 }
-const cover = ($event) => {
-
-  if ($event?.target?.tagName === 'BUTTON') {
+const cover = (event?: MouseEvent) => {
+  if (event?.target instanceof HTMLElement && event.target.tagName === 'BUTTON') {
     return
   }
   fullCover.value = true
