@@ -9,7 +9,7 @@
           {{ blok.job_title }}
         </KatzeTypography>
         <KatzeList
-          class="lg:mt-1 mt-4 flex-wrap lg:justify-center justify-start"
+          class="mt-4 flex-wrap justify-start"
           :list-with-icons="listWithIcons"
         />
         <KatzeTypography element="p">

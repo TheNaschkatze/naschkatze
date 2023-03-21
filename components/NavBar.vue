@@ -6,7 +6,7 @@
     <div class="px-4 px-6 lg:px-8">
       <div class="flex h-16 justify-end">
         <div class="ml-6 flex items-center gap-4">
-          <span class="flex items-center gap-2 text-gray-500 font-medium">
+          <span class="flex items-center gap-2 text-gray-500 font-medium sr-only md:not-sr-only">
             This website is Keyboard friendly!
           </span>
           <DarkModeSwitch />
