@@ -1,6 +1,9 @@
 <template>
-  <form class="flex flex-col gap-4 lg:w-1/2 mx-auto">
-    <KatzeTypography element="h3" class="text-stone-900">
+  <form
+      v-on:submit.prevent=""
+      class="flex flex-col gap-4 lg:w-1/2 mx-auto"
+  >
+    <KatzeTypography element="h3" class="text-stone-900 pr-12 md:p-unset">
       Answer the quiz to unlock!
     </KatzeTypography>
     <fieldset class="text-stone-800">
@@ -16,6 +19,7 @@
     </fieldset>
     <div class="flex gap-2">
       <KatzeButton
+          type="submit"
           @click="checkAnswer"
           class="w-full">
         Submit

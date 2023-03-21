@@ -13,7 +13,7 @@ defineProps<{
 </script>
 
 <template>
-  <ul class="flex text-text-color gap-4 justify-center lg:justify-start">
+  <ul class="flex text-text-color gap-4">
     <li class="flex" v-for="item in listWithIcons">
       <component :is="item.icon" class="h-7" />
       <KatzeTypography element="p">

@@ -8,7 +8,6 @@ import KatzeList from "~/components/Ui/KatzeList.vue";
 const store = personaStore()
 const { persona } = storeToRefs(store)
 const realPersona = computed(() => persona.value?.real)
-
 const listWithIcons = [
   {
     icon: MapPinIcon,
@@ -22,5 +21,5 @@ const listWithIcons = [
 </script>
 
 <template>
-  <KatzeList :list-with-icons="listWithIcons" />
+  <KatzeList class="justify-center lg:justify-start" :list-with-icons="listWithIcons" />
 </template>

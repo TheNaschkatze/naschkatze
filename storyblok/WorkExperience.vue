@@ -1,17 +1,31 @@
 <template>
   <div v-editable="blok">
     <KatzeActionCard
-        :is-unlockable="darkStore.isEnabled"
-        :is-unlocked="isUnlocked"
+      :is-unlockable="darkStore.isEnabled"
+      :is-unlocked="isUnlocked"
     >
       <template #default>
         <KatzeTypography element="h3">
           {{ blok.job_title }}
         </KatzeTypography>
-        <KatzeList class="mt-1" :list-with-icons="listWithIcons" />
+        <KatzeList
+          class="lg:mt-1 mt-4 flex-wrap lg:justify-center justify-start"
+          :list-with-icons="listWithIcons"
+        />
         <KatzeTypography element="p">
           {{ blok.description }}
         </KatzeTypography>
+        <transition
+            enter-to-class="opacity-100 bg-yellow-500"
+            enter-active-class="transition ease-in-out duration-500"
+        >
+          <KatzeTypography
+            v-if="isUnlocked"
+            element="p"
+          >
+            {{ blok.treasure }}
+          </KatzeTypography>
+        </transition>
       </template>
 
       <template #cover-content>
