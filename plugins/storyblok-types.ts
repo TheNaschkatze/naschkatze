@@ -1,17 +1,17 @@
 import fs from 'fs-extra'
 import StoryblokClient from 'storyblok-js-client'
-interface StoryblokComponent {
-    name: string;
-    schema: {
-        [key: string]: StoryblokField;
-    };
-}
-
 interface StoryblokField {
     type: string;
     required: boolean;
     restrict_components: boolean;
     component_whitelist: string[];
+}
+
+interface StoryblokComponent {
+  name: string;
+  schema: {
+    [key: string]: StoryblokField;
+  };
 }
 
 function capitalizeFirstLetter (str: string): string {
@@ -34,7 +34,6 @@ export default defineNuxtPlugin(async () => {
 
       return components
     } catch (error) {
-      console.error('Error fetching Storyblok components:', error)
       return []
     }
   }

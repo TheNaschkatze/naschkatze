@@ -1,3 +1,13 @@
+<script setup lang="ts">
+const emit = defineEmits(['update:modelValue'])
+defineProps<{
+  value: string,
+  modelValue: string,
+  label: string,
+  name: string
+}>()
+</script>
+
 <template>
   <input
     :id="value"
@@ -15,13 +25,3 @@
   </label>
   <br>
 </template>
-
-<script setup lang="ts">
-const emit = defineEmits(['update:modelValue'])
-const props = defineProps<{
-  value: string,
-  modelValue: string,
-  label: string,
-  name: string
-}>()
-</script>

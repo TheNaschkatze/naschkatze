@@ -1,3 +1,37 @@
+<script setup lang="ts">
+import { BuildingOffice2Icon, CalendarIcon, MapPinIcon } from '@heroicons/vue/20/solid'
+import KatzeActionCard from '~/components/Ui/KatzeActionCard.vue'
+import KatzeTypography from '~/components/Ui/KatzeTypography.vue'
+import KatzeList from '~/components/Ui/KatzeList.vue'
+import { WorkExperience } from '~/types/storyblok-components'
+
+const props = defineProps<{
+  blok: WorkExperience
+}>()
+const darkStore = useDarkModeStore()
+const isUnlocked = ref(false)
+
+if (!props.blok) {
+  throw new Error('No blok provided')
+}
+
+const listWithIcons = [
+  {
+    icon: BuildingOffice2Icon,
+    text: props.blok.employer
+  },
+  {
+    icon: MapPinIcon,
+    text: props.blok.location
+  },
+  {
+    icon: CalendarIcon,
+    text: props.blok.period
+  }
+]
+
+</script>
+
 <template>
   <div v-editable="blok">
     <KatzeActionCard
@@ -37,37 +71,3 @@
     </KatzeActionCard>
   </div>
 </template>
-
-<script setup lang="ts">
-import { BuildingOffice2Icon, CalendarIcon, MapPinIcon } from '@heroicons/vue/20/solid'
-import KatzeActionCard from '~/components/Ui/KatzeActionCard.vue'
-import KatzeTypography from '~/components/Ui/KatzeTypography.vue'
-import KatzeList from '~/components/Ui/KatzeList.vue'
-import {WorkExperience} from "~/types/storyblok-components";
-
-const props = defineProps<{
-  blok: WorkExperience
-}>()
-const darkStore = useDarkModeStore()
-const isUnlocked = ref(false)
-
-if (!props.blok) {
-  throw new Error('No blok provided')
-}
-
-const listWithIcons = [
-  {
-    icon: BuildingOffice2Icon,
-    text: props.blok.employer
-  },
-  {
-    icon: MapPinIcon,
-    text: props.blok.location
-  },
-  {
-    icon: CalendarIcon,
-    text: props.blok.period
-  }
-]
-
-</script>

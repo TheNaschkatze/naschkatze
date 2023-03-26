@@ -1,3 +1,51 @@
+<script setup lang="ts">
+import { onClickOutside } from '@vueuse/core'
+import { LockClosedIcon } from '@heroicons/vue/20/solid'
+import KatzeButton from '~/components/Ui/KatzeButton.vue'
+
+defineProps<{
+  isUnlockable: boolean
+  isUnlocked: boolean
+}>()
+const target = ref(null)
+const fullCover = ref(false)
+const isDelayFromCoverAnimationFinished = ref(false)
+
+const noToggleTags = ['BUTTON', 'INPUT']
+
+const toggleCover = (event?: Event) => {
+  if (fullCover.value) {
+    uncover(event)
+
+    return
+  }
+  cover(event)
+}
+const cover = (event?: Event) => {
+  if (event?.target instanceof HTMLElement && noToggleTags.includes(event.target.tagName)) {
+    return
+  }
+  fullCover.value = true
+
+  // Delay entering of slot
+  setTimeout(() => {
+    isDelayFromCoverAnimationFinished.value = true
+  }, 100)
+}
+
+const uncover = (event?: Event) => {
+  if (event?.target instanceof HTMLElement && noToggleTags.includes(event.target.tagName)) {
+    return
+  }
+  fullCover.value = false
+  isDelayFromCoverAnimationFinished.value = false
+}
+
+onClickOutside(target, () => {
+  uncover()
+})
+</script>
+
 <template>
   <div
     ref="target"
@@ -53,51 +101,3 @@
     </transition>
   </div>
 </template>
-
-<script setup lang="ts">
-import { onClickOutside } from '@vueuse/core'
-import { LockClosedIcon } from '@heroicons/vue/20/solid'
-import KatzeButton from '~/components/Ui/KatzeButton.vue'
-
-const props = defineProps<{
-  isUnlockable: boolean
-  isUnlocked: boolean
-}>()
-const target = ref(null)
-const fullCover = ref(false)
-const isDelayFromCoverAnimationFinished = ref(false)
-
-const noToggleTags = ['BUTTON', 'INPUT']
-
-const toggleCover = (event?: Event) => {
-  if (fullCover.value) {
-    uncover(event)
-
-    return
-  }
-  cover(event)
-}
-const cover = (event?: Event) => {
-  if (event?.target instanceof HTMLElement && noToggleTags.includes(event.target.tagName)) {
-    return
-  }
-  fullCover.value = true
-
-  // Delay entering of slot
-  setTimeout(() => {
-    isDelayFromCoverAnimationFinished.value = true
-  }, 100)
-}
-
-const uncover = (event?: Event) => {
-  if (event?.target instanceof HTMLElement && noToggleTags.includes(event.target.tagName)) {
-    return
-  }
-  fullCover.value = false
-  isDelayFromCoverAnimationFinished.value = false
-}
-
-onClickOutside(target, () => {
-  uncover()
-})
-</script>

@@ -14,7 +14,11 @@ defineProps<{
 
 <template>
   <ul class="flex text-text-color gap-4">
-    <li v-for="item in listWithIcons" class="flex">
+    <li
+      v-for="item in listWithIcons"
+      :key="item.text"
+      class="flex"
+    >
       <component :is="item.icon" class="h-7" />
       <KatzeTypography element="p">
         | {{ item.text }}

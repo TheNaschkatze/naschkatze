@@ -1,3 +1,20 @@
+<script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { personaStore } from '~/stores/personaStore'
+import javier from '~/assets/images/javier.jpg'
+import { WorkExperienceList } from '~/types/storyblok-components'
+
+definePageMeta({
+  layout: undefined
+})
+
+const store = personaStore()
+const { persona } = storeToRefs(store)
+const realPersona = computed(() => persona.value?.real)
+const story = await useAsyncStoryblok('home', { version: 'draft' })
+const workExperience = computed<WorkExperienceList>(() => story.value?.content.body.find(blok => blok.component === 'workExperienceList')?.workexperience)
+</script>
+
 <template>
   <div class="bg-white prose-lg">
     <h1>{{ realPersona.name }} | {{ realPersona.title }}</h1>
@@ -46,29 +63,9 @@
     </table>
     <br>
     <h2> Professional Experience</h2>
-    <div v-for="entry in workExperience">
+    <div v-for="entry in workExperience" :key="entry.id">
       <h3>{{ entry.employer }}, {{ entry.location }} | {{ entry.period }}</h3>
       <p>{{ entry.description }}</p>
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { storeToRefs } from 'pinia'
-import { personaStore } from '~/stores/personaStore'
-import javier from '~/assets/images/javier.jpg'
-
-definePageMeta({
-  layout: ''
-})
-
-const store = personaStore()
-const { persona } = storeToRefs(store)
-const realPersona = computed(() => persona.value?.real)
-const story = await useAsyncStoryblok('home', { version: 'draft' })
-const workExperience = computed(() => story.value?.content.body.find(blok => blok.component === 'workExperienceList')?.workexperience)
-</script>
-
-<style lang="scss" scoped>
-
-</style>

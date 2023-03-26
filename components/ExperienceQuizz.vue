@@ -1,3 +1,28 @@
+<script setup lang="ts">
+import KatzeTypography from '~/components/Ui/KatzeTypography.vue'
+import KatzeOptionLabel from '~/components/Ui/KatzeOptionLabel.vue'
+import KatzeButton from '~/components/Ui/KatzeButton.vue'
+import { Quizz } from '~/types/storyblok-components'
+
+const props = defineProps<{quizz: Quizz[]}>()
+const emit = defineEmits(['unlock'])
+const picked = ref()
+const showError = ref(false)
+
+if (props.quizz.length === 0) {
+  createError('No quizz provided!')
+}
+
+const checkAnswer = () => {
+  if (picked.value === props.quizz[0].correctAnswer) {
+    showError.value = false
+    emit('unlock')
+  } else {
+    showError.value = true
+  }
+}
+</script>
+
 <template>
   <form
     class="flex flex-col gap-4 lg:w-1/2 mx-auto"
@@ -30,29 +55,6 @@
     </div>
   </form>
 </template>
-<script setup lang="ts">
-import KatzeTypography from '~/components/Ui/KatzeTypography.vue'
-import KatzeOptionLabel from '~/components/Ui/KatzeOptionLabel.vue'
-import KatzeButton from '~/components/Ui/KatzeButton.vue'
-
-const props = defineProps({ quizz: [] })
-const emit = defineEmits(['unlock'])
-const picked = ref()
-const showError = ref(false)
-
-if (props.quizz.length === 0) {
-  createError('No quizz provided!')
-}
-
-const checkAnswer = () => {
-  if (picked.value === props.quizz[0].correctAnswer) {
-    showError.value = false
-    emit('unlock')
-  } else {
-    showError.value = true
-  }
-}
-</script>
 
 <style lang="css">
 .v-enter-active,
