@@ -43,8 +43,11 @@ import { BuildingOffice2Icon, CalendarIcon, MapPinIcon } from '@heroicons/vue/20
 import KatzeActionCard from '~/components/Ui/KatzeActionCard.vue'
 import KatzeTypography from '~/components/Ui/KatzeTypography.vue'
 import KatzeList from '~/components/Ui/KatzeList.vue'
+import {WorkExperience} from "~/types/storyblok-components";
 
-const props = defineProps({ blok: Object })
+const props = defineProps<{
+  blok: WorkExperience
+}>()
 const darkStore = useDarkModeStore()
 const isUnlocked = ref(false)
 

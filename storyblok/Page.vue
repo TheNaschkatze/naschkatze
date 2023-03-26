@@ -4,6 +4,8 @@
   </div>
 </template>
 
-<script setup>
-defineProps({ blok: Object })
+<script setup lang="ts">
+import Page from "~/storyblok/Page.vue";
+
+defineProps<{blok: Page}>()
 </script>

@@ -13,8 +13,9 @@
 
 <script setup lang="ts">
 import KatzeTypography from '~/components/Ui/KatzeTypography.vue'
+import {WorkExperienceList} from "~/types/storyblok-components";
 
-defineProps({ blok: Object })
+defineProps<{blok: WorkExperienceList}>()
 
 </script>
 
