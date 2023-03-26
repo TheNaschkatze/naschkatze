@@ -15,7 +15,7 @@ interface StoryblokField {
 }
 
 function capitalizeFirstLetter (str: string): string {
-    return str.charAt(0).toUpperCase() + str.slice(1)
+  return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
 const doNotModifyWarning = '/**\n' +
@@ -23,60 +23,60 @@ const doNotModifyWarning = '/**\n' +
     ' */'
 
 export default defineNuxtPlugin(async () => {
+  const Storyblok = new StoryblokClient({
+    oauthToken: process.env.STORYBLOK_OAUTH_TOKEN
+  })
 
-    const Storyblok = new StoryblokClient({
-      oauthToken: process.env.STORYBLOK_OAUTH_TOKEN
-    })
+  async function fetchStoryblokComponents () {
+    try {
+      const response = await Storyblok.get(`spaces/${process.env.STORYBLOK_SPACE_ID}/components/`)
+      const components: StoryblokComponent[] = response.data.components
 
-    async function fetchStoryblokComponents () {
-      try {
-        const response = await Storyblok.get(`spaces/${process.env.STORYBLOK_SPACE_ID}/components/`)
-        const components: StoryblokComponent[] = response.data.components
+      return components
+    } catch (error) {
+      console.error('Error fetching Storyblok components:', error)
+      return []
+    }
+  }
 
-        return components
-      } catch (error) {
-        console.error('Error fetching Storyblok components:', error)
-        return []
-      }
+  function convertType (field: StoryblokField): string {
+    switch (field.type) {
+      case 'text':
+      case 'markdown':
+      case 'richtext':
+      case 'link':
+        return 'string'
+      case 'number':
+        return 'number'
+      case 'checkbox':
+        return 'boolean'
+      case 'bloks':
+        return field.restrict_components && field.component_whitelist.length > 0
+          ? capitalizeFirstLetter(field.component_whitelist[0])
+          : '[]'
+      default:
+        return 'unknown'
+    }
+  }
+
+  function convertComponentToInterface (component: StoryblokComponent): string {
+    const capitalizedComponentName = capitalizeFirstLetter(component.name)
+
+    let interfaceString = `export interface ${capitalizedComponentName} {\n`
+
+    // add fields to the interface
+    for (const fieldName in component.schema) {
+      const field = component.schema[fieldName]
+      const fieldType = convertType(field)
+
+      interfaceString += `  ${fieldName}${field.required ? '' : '?'}: ${fieldType};\n`
     }
 
-    function convertType (field: StoryblokField): string {
-      switch (field.type) {
-        case 'text':
-        case 'markdown':
-        case 'richtext':
-        case 'link':
-          return 'string'
-        case 'number':
-          return 'number'
-        case 'checkbox':
-          return 'boolean'
-        case 'bloks':
-          return field.restrict_components && field.component_whitelist.length > 0
-            ? capitalizeFirstLetter(field.component_whitelist[0])
-            : '[]'
-        default:
-          return 'unknown'
-      }
-    }
+    interfaceString += '}\n\n'
+    return interfaceString
+  }
 
-    function convertComponentToInterface (component: StoryblokComponent): string {
-      const capitalizedComponentName = capitalizeFirstLetter(component.name)
-
-      let interfaceString = `export interface ${capitalizedComponentName} {\n`
-
-        // add fields to the interface
-      for (const fieldName in component.schema) {
-        const field = component.schema[fieldName]
-        const fieldType = convertType(field)
-
-        interfaceString += `  ${fieldName}${field.required ? '' : '?'}: ${fieldType};\n`
-      }
-
-      interfaceString += '}\n\n'
-      return interfaceString
-    }
-
+  if (process.env.NODE_ENV === 'development') {
     const components = await fetchStoryblokComponents()
 
     let interfacesString = `${doNotModifyWarning}\n\n`
@@ -86,4 +86,5 @@ export default defineNuxtPlugin(async () => {
     }
 
     fs.writeFileSync('types/storyblok-components.ts', interfacesString)
+  }
 })
