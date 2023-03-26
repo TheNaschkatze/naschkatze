@@ -16,8 +16,8 @@
           {{ blok.description }}
         </KatzeTypography>
         <transition
-            enter-to-class="opacity-100 bg-yellow-500"
-            enter-active-class="transition ease-in-out duration-500"
+          enter-to-class="opacity-100 bg-yellow-500"
+          enter-active-class="transition ease-in-out duration-500"
         >
           <KatzeTypography
             v-if="isUnlocked"
@@ -30,18 +30,19 @@
 
       <template #cover-content>
         <ExperienceQuizz
+          :quizz="blok.quizz"
           @unlock="isUnlocked = true"
-          :quizz="blok.quizz" />
+        />
       </template>
     </KatzeActionCard>
   </div>
 </template>
 
 <script setup lang="ts">
+import { BuildingOffice2Icon, CalendarIcon, MapPinIcon } from '@heroicons/vue/20/solid'
 import KatzeActionCard from '~/components/Ui/KatzeActionCard.vue'
 import KatzeTypography from '~/components/Ui/KatzeTypography.vue'
-import KatzeList from "~/components/Ui/KatzeList.vue";
-import {BuildingOffice2Icon, CalendarIcon, MapPinIcon} from "@heroicons/vue/20/solid";
+import KatzeList from '~/components/Ui/KatzeList.vue'
 
 const props = defineProps({ blok: Object })
 const darkStore = useDarkModeStore()
@@ -62,7 +63,7 @@ const listWithIcons = [
   },
   {
     icon: CalendarIcon,
-    text:props.blok.period
+    text: props.blok.period
   }
 ]
 
