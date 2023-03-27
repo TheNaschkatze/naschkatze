@@ -1,9 +1,8 @@
 <script setup>
 import { MapPinIcon, BuildingOffice2Icon } from '@heroicons/vue/20/solid'
 import { storeToRefs } from 'pinia'
-import KatzeTypography from '~/components/Ui/KatzeTypography.vue'
 import { personaStore } from '~/stores/personaStore'
-import KatzeList from "~/components/Ui/KatzeList.vue";
+import KatzeList from '~/components/Ui/KatzeList.vue'
 
 const store = personaStore()
 const { persona } = storeToRefs(store)

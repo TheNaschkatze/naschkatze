@@ -29,5 +29,5 @@
 <script setup>
 import { Disclosure } from '@headlessui/vue'
 import { PrinterIcon } from '@heroicons/vue/20/solid'
-import KatzeButton from "~/components/Ui/KatzeButton.vue";
+import KatzeButton from '~/components/Ui/KatzeButton.vue'
 </script>

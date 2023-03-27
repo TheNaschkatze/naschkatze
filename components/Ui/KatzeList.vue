@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import KatzeTypography from "~/components/Ui/KatzeTypography.vue";
-import {FunctionalComponent, HTMLAttributes, VNodeProps} from "vue";
+import { FunctionalComponent, HTMLAttributes, VNodeProps } from 'vue'
+import KatzeTypography from '~/components/Ui/KatzeTypography.vue'
 
 defineProps<{
   listWithIcons: [
@@ -14,11 +14,15 @@ defineProps<{
 
 <template>
   <ul class="flex text-text-color gap-4">
-    <li class="flex" v-for="item in listWithIcons">
+    <li
+      v-for="item in listWithIcons"
+      :key="item.text"
+      class="flex"
+    >
       <component :is="item.icon" class="h-7" />
       <KatzeTypography element="p">
-      | {{ item.text }}
-    </KatzeTypography>
+        | {{ item.text }}
+      </KatzeTypography>
     </li>
   </ul>
 </template>

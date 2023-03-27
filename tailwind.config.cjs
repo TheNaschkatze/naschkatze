@@ -18,7 +18,7 @@ module.exports = {
         secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
         'secondary-hover': 'rgb(var(--color-secondary-hover) / <alpha-value>)',
         'card-background': 'rgb(var(--color-card-background) / <alpha-value>)',
-        'error': 'rgb(var(--color-error) / <alpha-value>)',
+        error: 'rgb(var(--color-error) / <alpha-value>)',
         'text-color': 'rgb(var(--color-text-color) / <alpha-value>)',
         background: 'rgb(var(--color-background) / <alpha-value>)',
         transparent: 'transparent',
