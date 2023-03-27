@@ -1,5 +1,5 @@
 import generateTypes from './scripts/generateBlokTypes';
 
 export default {
-    plugins: [generateTypes()],
+    ...(process.env.NODE_ENV === 'development' ? [generateTypes()] : [])
 };

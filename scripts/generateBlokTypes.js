@@ -77,7 +77,7 @@ export default async function generateTypes() {
         { encoding: 'utf8' },
         err => {
             if (err) throw err;
-            console.log('File has been saved!');
+            console.log('File types/storyblok-components.ts has been saved!');
         }
     );
 }
