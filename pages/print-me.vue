@@ -5,7 +5,7 @@ import javier from '~/assets/images/javier.jpg'
 import { WorkExperienceList } from '~/types/storyblok-components'
 
 definePageMeta({
-  layout: undefined
+  layout: ""
 })
 
 const store = personaStore()

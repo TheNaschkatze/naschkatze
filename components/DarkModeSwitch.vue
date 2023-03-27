@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import { Switch } from '@headlessui/vue'
+import { SunIcon, MoonIcon, StarIcon, SparklesIcon } from '@heroicons/vue/20/solid'
+
+const darkModeStore = useDarkModeStore()
+const darkModeEnabled = computed({
+  get: () => darkModeStore.isEnabled,
+  set: (value) => {
+    darkModeStore.isEnabled = value
+  }
+})
+
+</script>
+
 <template>
   <Switch
     v-model="darkModeEnabled"
@@ -38,16 +52,3 @@
     </span>
   </Switch>
 </template>
-
-<script setup lang="ts">
-import { Switch } from '@headlessui/vue'
-import { SunIcon, MoonIcon, StarIcon, SparklesIcon } from '@heroicons/vue/20/solid'
-
-const darkModeStore = useDarkModeStore()
-const darkModeEnabled = computed({
-  get: () => darkModeStore.isEnabled,
-  set: (value) => {
-    darkModeStore.isEnabled = value
-  }
-})
-</script>
