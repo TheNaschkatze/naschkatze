@@ -68,7 +68,7 @@ onClickOutside(target, () => {
       <div
         v-if="isUnlockable && !isUnlocked"
         :class="[
-          'absolute rounded-t-lg w-full h-24 bottom-0 left-0 bg-yellow-600 transition-height duration-300 ease-out',
+          'absolute rounded-lg w-full h-24 bottom-0 left-0 bg-yellow-600 transition-height duration-300 ease-out',
           {
             'h-full group-hover:none p-4 lg:p-12 ': fullCover,
             'flex group-hover:h-36 group-focus:h-36 justify-center p-4': !fullCover,
