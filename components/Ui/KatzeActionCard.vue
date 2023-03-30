@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onClickOutside } from '@vueuse/core'
+import { onClickOutside, useMediaQuery } from '@vueuse/core'
 import { LockClosedIcon } from '@heroicons/vue/20/solid'
 import KatzeButton from '~/components/Ui/KatzeButton.vue'
 
@@ -7,9 +7,11 @@ defineProps<{
   isUnlockable: boolean
   isUnlocked: boolean
 }>()
+
 const target = ref(null)
 const fullCover = ref(false)
 const isDelayFromCoverAnimationFinished = ref(false)
+const isLargeScreen = useMediaQuery('(min-width: 1024px)')
 
 const noToggleTags = ['BUTTON', 'INPUT']
 
@@ -30,7 +32,7 @@ const cover = (event?: Event) => {
   // Delay entering of slot
   setTimeout(() => {
     isDelayFromCoverAnimationFinished.value = true
-  }, 100)
+  }, isLargeScreen.value ? 100 : 0)
 }
 
 const uncover = (event?: Event) => {
@@ -60,6 +62,11 @@ onClickOutside(target, () => {
     >
       <slot name="default" />
     </div>
+    <!-- Overlay -->
+    <div
+      v-if="fullCover && !isUnlocked"
+      class="absolute inset-0 bg-black opacity-50"
+    />
     <!-- Cover -->
     <transition
       leave-to-class="translate-y-[150%] opacity-0"
@@ -70,7 +77,7 @@ onClickOutside(target, () => {
         :class="[
           'absolute rounded-lg w-full h-24 bottom-0 left-0 bg-yellow-600 transition-height duration-300 ease-out',
           {
-            'h-full group-hover:none p-4 lg:p-12 ': fullCover,
+            'h-min lg:h-full group-hover:none p-4 lg:p-12 ': fullCover,
             'flex group-hover:h-36 group-focus:h-36 justify-center p-4': !fullCover,
           },
         ]"
