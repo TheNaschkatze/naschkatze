@@ -46,7 +46,9 @@ const listWithIcons = [
           class="mt-4 flex-wrap justify-start"
           :list-with-icons="listWithIcons"
         />
-        <KatzeTypography element="p">
+        <KatzeTypography
+          element="p"
+        >
           {{ blok.description }}
         </KatzeTypography>
         <transition
