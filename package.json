@@ -34,6 +34,8 @@
     "@pinia/nuxt": "^0.4.6",
     "@storyblok/nuxt": "^5.1.0",
     "@vueuse/core": "^9.13.0",
-    "pinia": "^2.0.30"
+    "chart.js": "^4.2.1",
+    "pinia": "^2.0.30",
+    "vue-chartjs": "^5.2.0"
   }
 }
