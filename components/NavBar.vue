@@ -5,8 +5,18 @@ import { PrinterIcon } from '@heroicons/vue/20/solid'
 import KatzeButton from '~/components/Ui/KatzeButton.vue'
 const route = useRoute()
 const navigation = [
-  { to: 'index', displayName: 'Experience' },
-  { to: 'inspiration', displayName: 'Inspiration' }
+  {
+    to: {
+      name: 'index'
+    },
+    displayName: 'Experience'
+  },
+  {
+    to: {
+      name: 'inspiration'
+    },
+    displayName: 'Inspiration'
+  }
   // { name: 'Education', href: '#', current: false },
   // { name: 'Awards', href: '#', current: false },
 ]

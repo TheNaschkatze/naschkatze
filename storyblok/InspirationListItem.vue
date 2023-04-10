@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ChatBubbleBottomCenterIcon, MicrophoneIcon, VideoCameraIcon, BookOpenIcon } from '@heroicons/vue/24/solid'
-import { Inspiration } from '~/types/storyblok-components'
+import {InspirationListItem} from '~/types/storyblok-components'
 import KatzeCard from '~/components/Ui/KatzeCard.vue'
 
 const props = defineProps<{
-  blok: Inspiration
+  blok: InspirationListItem
 }>()
 
 if (!props.blok) {
@@ -27,11 +27,20 @@ const icon = computed(() => {
   }
 })
 
+const transformLink = computed(() => {
+  if (props.blok.linkTo.linktype === 'story') {
+    return {
+      url: props.blok.linkTo.cached_url
+    }
+  }
+  return props.blok.linkTo
+})
+
 </script>
 
 <template>
   <KatzeCard
-    :link-to="blok.linkTo"
+    :link-to="transformLink"
     :layout="blok.layout"
     :img-src="blok.image?.filename"
   >
