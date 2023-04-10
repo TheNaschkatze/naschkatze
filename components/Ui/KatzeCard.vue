@@ -13,7 +13,7 @@ defineProps<{
     :to="linkTo?.url"
     :target="linkTo?.target"
     :class="[
-      'rounded-lg p-6 border-gray-400 border-2 cursor-pointer hover:border-primary hover:bg-primary-hover transition duration-200 ease-in',
+      'tab-0 rounded-lg p-6 border-gray-400 border-2 cursor-pointer hover:border-primary hover:bg-primary-hover transition duration-200 ease-in focus:outline-none focus:ring-2 focus:ring-primary',
       {
         'horizontal': 'col-span-2',
       }[layout]

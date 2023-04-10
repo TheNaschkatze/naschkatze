@@ -44,7 +44,7 @@ const isActive = (to: string) => {
           </div>
           <!-- Links -->
           <div class="hidden md:ml-6 md:flex md:items-center md:space-x-4">
-            <nuxt-link v-for="item in navigation" :key="item.to" :to="item.to" :class="[isActive(item.to)? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']" :aria-current="isActive(item.to) ? 'page' : undefined">
+            <nuxt-link v-for="item in navigation" :key="item.to" :to="item.to" :class="[isActive(item.to)? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary']" :aria-current="isActive(item.to) ? 'page' : undefined">
               {{ item.displayName }}
             </nuxt-link>
           </div>
