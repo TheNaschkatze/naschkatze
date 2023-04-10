@@ -52,7 +52,7 @@ function convertType (field) {
 
 function convertComponentToInterface (component) {
   const capitalizedComponentName = capitalizeFirstLetter(component.name)
-  let interfaceString = `export interface ${capitalizedComponentName} {\n`
+  let interfaceString = `\nexport interface ${capitalizedComponentName} {\n`
 
   // add fields to the interface
   for (const fieldName in component.schema) {
@@ -61,13 +61,13 @@ function convertComponentToInterface (component) {
     interfaceString += `  ${fieldName}${field.required ? '' : '?'}: ${fieldType};\n`
   }
 
-  interfaceString += '}\n\n'
+  interfaceString += '}\n'
   return interfaceString
 }
 
 export default async function generateTypes () {
   const components = await fetchStoryblokComponents()
-  let interfacesString = `${doNotModifyWarning}\n\n`
+  let interfacesString = `${doNotModifyWarning}\n`
 
   for (const component of components) {
     interfacesString += convertComponentToInterface(component)

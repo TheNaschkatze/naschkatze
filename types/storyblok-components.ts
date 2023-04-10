@@ -50,4 +50,3 @@ export interface WorkExperience {
 export interface WorkExperienceList {
   workexperience?: WorkExperience;
 }
-
