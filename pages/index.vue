@@ -8,7 +8,3 @@
 <script setup lang="ts">
 const story = await useAsyncStoryblok('home', { version: 'draft' })
 </script>
-
-<style scoped>
-
-</style>

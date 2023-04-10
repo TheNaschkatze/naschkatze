@@ -5,7 +5,7 @@
     :class="[
       {
         out: 'rotate-out',
-        in: 'rotate-in',
+        in: 'rotate-in'
       }[phase],
       'rounded-lg object-cover'
     ]"
