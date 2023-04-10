@@ -101,7 +101,7 @@ onClickOutside(target, () => {
         >
           [ X ]
         </KatzeButton>
-        <section v-if="isDelayFromCoverAnimationFinished" class="mx-auto my-auto">
+        <section v-if="isDelayFromCoverAnimationFinished" class="mx-auto my-auto whitespace-pre-wrap">
           <slot name="cover-content" />
         </section>
       </div>

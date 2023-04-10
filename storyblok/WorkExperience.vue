@@ -48,6 +48,7 @@ const listWithIcons = [
         />
         <KatzeTypography
           element="p"
+          class="mt-4 whitespace-pre-wrap"
         >
           {{ blok.description }}
         </KatzeTypography>

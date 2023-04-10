@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ChatBubbleBottomCenterIcon, MicrophoneIcon, VideoCameraIcon, BookOpenIcon } from '@heroicons/vue/24/solid'
-import {InspirationListItem} from '~/types/storyblok-components'
+import { InspirationListItem } from '~/types/storyblok-components'
 import KatzeCard from '~/components/Ui/KatzeCard.vue'
 
 const props = defineProps<{

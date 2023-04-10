@@ -9,7 +9,7 @@ defineProps<{blok: InspirationList}>()
   <KatzeTypography element="h1" class="mb-8">
     Inspiration
   </KatzeTypography>
-  <section class="grid grid-cols-3 grid-rows-2 gap-4">
+  <section class="grid grid-cols-1 md:grid-cols-3 grid-rows-2 md:gap-4">
     <StoryblokComponent
       v-for="nestedBlok in blok.inspirationList"
       :key="nestedBlok._uid"
