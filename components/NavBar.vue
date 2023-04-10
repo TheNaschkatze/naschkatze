@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 import { PrinterIcon } from '@heroicons/vue/20/solid'
 import KatzeButton from '~/components/Ui/KatzeButton.vue'
@@ -23,7 +23,6 @@ const navigation = [
 
 // check if is active nav
 const isActive = (to: string) => {
-  console.log(to, route.name)
   return to === route.name
 }
 
