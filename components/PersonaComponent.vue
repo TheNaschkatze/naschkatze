@@ -12,7 +12,7 @@
         {{ name }}
       </KatzeTypography>
       <PersonaMetaData class="text-center lg:text-left" />
-      <KatzeTypography element="p">
+      <KatzeTypography element="p" class="mt-4">
         I am a software developer who currently resides in Germany. Originally from Chile, I have always had a passion for building things with code that not only look beautiful but are also elegantly written.
       </KatzeTypography>
       <KatzeTypography element="p">

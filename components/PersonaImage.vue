@@ -5,9 +5,9 @@
     :class="[
       {
         out: 'rotate-out',
-        in: 'rotate-in',
+        in: 'rotate-in'
       }[phase],
-      'rounded-lg'
+      'rounded-lg object-cover'
     ]"
   >
 </template>
